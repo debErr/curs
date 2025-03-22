@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    font-family: "Rubik", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    width: 50%;
+    height: 50px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid black;
+}
+
+th {
+    background-color: #E6EFFF;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Зебра: чередование цвета строк */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Эффект при наведении на строку */
+    cursor: pointer;
+}
+
+td {
+    word-wrap: break-word; /* Перенос длинных слов */
+    white-space: normal; /* Разрешить перенос текста */
+}

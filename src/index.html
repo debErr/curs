@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SingIn</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="to-main">
+            <div class="box">
+                <div class="inReg">
+                    <button class="in" type="submit"><a class="a-in" href="/">Вход</a></button>
+                    <button class="reg" type="submit"><a class="a-reg" href="/register">Регистрация</a></button>
+                </div>
+        
+                <form id="inForm">
+                    <label for="name">ФИО</label>
+                    <input class="name-in" type="text" name="name" id="name" placeholder="Владимиров Владимир Владимирович" required>
+                    <label for="password">Пароль</label>
+                    <input type="password" name="password" id="password" required>
+                    <div class="btn-block">
+                        <button class="btn-in" type="submit">Войти</button>
+                        <p id="message"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

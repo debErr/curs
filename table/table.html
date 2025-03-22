@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <link rel="stylesheet" href="styleTable.css">
+</head>
+<body>
+    <table id="userTable">
+        <thead>
+            <th scope="col">ФИО</th>
+            <th scope="col">Номер телефона</th>
+            <th scope="col">Почта</th>
+            <th scope="col">Пароль</th>
+            <th scope="col">Время работы</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // Функция для загрузки данных пользователей
+        async function loadUsers() {
+            try {
+                const response = await fetch('/api/users');
+                const data = await response.json();
+
+                if (data.success) {
+                    const tbody = document.querySelector('#userTable tbody');
+                    tbody.innerHTML = ''; // Очистка таблицы перед добавлением новых данных
+
+                    data.users.forEach(user => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${user.full_name}</td>
+                            <td>${user.phone}</td>
+                            <td>${user.email}</td>
+                            <td>${user.password}</td>
+                            <td>${user.work_time}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                } else {
+                    console.error('Ошибка при загрузке данных:', data.message);
+                }
+            } catch (error) {
+                console.error('Ошибка при загрузке данных:', error);
+            }
+        }
+
+        // Загрузка данных при загрузке страницы
+        window.onload = loadUsers;
+    </script>
+</body>
+</html>
